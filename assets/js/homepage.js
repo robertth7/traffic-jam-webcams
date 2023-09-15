@@ -50,9 +50,10 @@ function initMap() {
   });
   autocomplete.addListener('place_changed', function () {
     const place = autocomplete.getPlace();
+    // send const place data into getCoord() to send coordinate info
     getCoord(place);
-    console.log(place.geometry.location.lat());
-    console.log(place.geometry.location.lng());
+    // console.log(place.geometry.location.lat());
+    // console.log(place.geometry.location.lng());
     if (!place.geometry) {
       // User entered the name of a Place that was not suggested and
       // pressed the Enter key, or the Place Details request failed.
@@ -91,15 +92,24 @@ function initMap() {
   }
 }
 
+// we will create this function to get coordinates
+// we will also use this function to hide the modal when user has selected address
 var getCoord = function(data){
     console.log(data);
+
+    var gotCoord = data;
+
+    if (gotCoord) {
+        $("#search-form-modal").modal("hide");
+    }
+
     getWebApi(data);
 };
 
 var getWebApi = function(data) {
-    console.log(data);
+    // console.log(data);
     var lat = data.geometry.location.lat();
-    console.log(lat);
+    // console.log(lat);
     var lon = data.geometry.location.lng();
 
     var apiUrl = "https://webcamstravel.p.rapidapi.com/webcams/list/nearby=" + lat + "," + lon + ",5?lang=en&show=webcams%3Aimage%2Clocation";

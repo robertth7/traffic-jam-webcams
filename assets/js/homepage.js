@@ -99,6 +99,7 @@ var getCoord = function(data){
 
     var gotCoord = data;
 
+    // hide modal once user enters address
     if (gotCoord) {
         $("#search-form-modal").modal("hide");
     }
@@ -133,6 +134,9 @@ var getWebApi = function(data) {
 var createCams = function(data) {
     console.log(data);
 
+    // clear old displayed content when user searches again
+    displayCamEl.textContent = "";
+
     // loop over webcams data
     for (var i = 0; i < data.result.webcams.length; i++) {
         // console below lets me know if we caught array of webcams
@@ -141,6 +145,7 @@ var createCams = function(data) {
         var displayCam = data.result.webcams[i].image.current.preview;
         console.log(displayCam);
 
+        // create element for the cam previews
         var listEl = document.createElement("img");
         listEl.src = displayCam;
         console.log(listEl);
@@ -150,6 +155,7 @@ var createCams = function(data) {
 
         listEl.appendChild(nameEl);
 
+        // append to element
         displayCamEl.appendChild(listEl);
     }     
 

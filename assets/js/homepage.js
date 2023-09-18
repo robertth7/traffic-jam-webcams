@@ -109,6 +109,7 @@ var getCoord = function(data){
 
 var getWebApi = function(data) {
     // console.log(data);
+    // I believe an if statement here can get rid of the errors. maybe if (coord) then var(lat,lon)...
     var lat = data.geometry.location.lat();
     // console.log(lat);
     var lon = data.geometry.location.lng();
@@ -145,18 +146,22 @@ var createCams = function(data) {
         var displayCam = data.result.webcams[i].image.current.preview;
         console.log(displayCam);
 
+        // created a div with class card to be able to change how the images will be displayed on page
+        var unListEl = document.createElement("div");
+        unListEl.classList = "card";
+
         // create element for the cam previews
         var listEl = document.createElement("img");
         listEl.src = displayCam;
         console.log(listEl);
 
-        var nameEl = document.createElement("span");
-        nameEl.textContent = "webcam";
+        // var nameEl = document.createElement("span");
+        // nameEl.textContent = "webcam";
 
-        listEl.appendChild(nameEl);
+        unListEl.appendChild(listEl);
 
         // append to element
-        displayCamEl.appendChild(listEl);
+        displayCamEl.appendChild(unListEl);
     }     
 
 };

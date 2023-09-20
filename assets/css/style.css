@@ -106,3 +106,42 @@ body {
   .btn:hover {
     background-position: 1px -50px;
   } */
+
+  
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+
+@media screen and (max-width: 1400px) {
+  .panel {
+    width: 275px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  /* this will be applied on any screen smaller than 980px */
+  .panel {
+    width: 275px;
+  }
+  .sb-title {
+    top: -5px;
+    padding-left: 10px;
+  }
+  .sb-title-icon {
+    padding-left: 30px;
+  }
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width: 768px) {
+  /* this will be applied to any screen between 768px and 575px */
+  .panel {
+    width: 300px;
+    padding: 4px;
+    padding-left: 25px;
+  }
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+  /* this will be applied on any screen smaller than 575px */
+}

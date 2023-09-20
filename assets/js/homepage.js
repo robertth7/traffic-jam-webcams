@@ -166,4 +166,8 @@ var createCams = function(data) {
 
 };
 
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
 getWebApi();

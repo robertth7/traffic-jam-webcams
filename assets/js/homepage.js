@@ -25,6 +25,8 @@ var displayCamEl = document.querySelector("#webcam-container");
 //     }
 // });
 
+// GOOGLE Autocomplete section Start
+
 "use strict";
 
 function initMap() {
@@ -92,6 +94,10 @@ function initMap() {
   }
 }
 
+// GOOGLE Autocomplete section END
+
+// Coordinate Section Start
+
 // we will create this function to get coordinates
 // we will also use this function to hide the modal when user has selected address
 var getCoord = function(data){
@@ -106,6 +112,10 @@ var getCoord = function(data){
 
     getWebApi(data);
 };
+
+// Coordinate Section End
+
+// WEBCAM Api Start
 
 var getWebApi = function(data) {
     // console.log(data);
@@ -131,6 +141,10 @@ var getWebApi = function(data) {
         });
     })
 };
+
+// WEBCAM Api End
+
+// Creating/Displaying Webcams Start
 
 var createCams = function(data) {
     console.log(data);
@@ -165,6 +179,8 @@ var createCams = function(data) {
     }     
 
 };
+
+// Create/Display End
 
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
